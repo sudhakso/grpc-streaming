@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package sapi;
+
+option go_package = "grpc-server-streaming/api";
+
+service StreamService {
+  rpc FetchResponse (Request) returns (stream Response) {}
+}
+
+message Request {
+  int32 id = 1;
+}
+
+message Response {
+  string result = 1;
+}
